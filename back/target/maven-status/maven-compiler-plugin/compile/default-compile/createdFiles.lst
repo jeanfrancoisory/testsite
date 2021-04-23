@@ -1,0 +1,5 @@
+site/resource/MyExceptionMapper.class
+site/model/Site.class
+site/model/Personne.class
+site/resource/SiteResource.class
+site/Main.class
