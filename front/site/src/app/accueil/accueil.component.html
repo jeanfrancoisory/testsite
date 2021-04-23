@@ -1,0 +1,33 @@
+<div class="centre">
+  <h1>Accueil</h1>
+  <form (ngSubmit)="onConnect(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="email">
+        Email
+      </label>
+      <input type="text" id="email" class="form-control" name="email" ngModel required>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="password">
+        Password
+      </label>
+      <input type="text" id="password" class="form-control" name="password" ngModel required>
+    </div>
+    <p>
+      <button class="favorite styled"
+              type="submit"
+              [disabled]="f.invalid">
+        Connection
+      </button>
+    </p>
+  </form>
+  <br>
+  <button class="favorite styled"
+          type="button" (click)="onCreateNewAccount()">
+    Creer un compte
+  </button>
+  <div class="logo" >
+    <img class='logoimg' src='assets/dessin.svg' />
+  </div>
+</div>

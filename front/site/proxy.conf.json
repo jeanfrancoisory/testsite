@@ -1,0 +1,8 @@
+{
+  "/site/*": {
+    "target": "http://localhost:4444",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

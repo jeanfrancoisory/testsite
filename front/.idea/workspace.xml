@@ -19,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/site" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1rTHYyEtSNinb5Ea3EFxPtyeY92" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -71,6 +71,7 @@
       <workItem from="1619107887658" duration="575000" />
       <workItem from="1619109057209" duration="6808000" />
       <workItem from="1619179762780" duration="1645000" />
+      <workItem from="1619182917073" duration="43000" />
     </task>
     <task id="LOCAL-00001" summary="First commit front">
       <created>1619179876650</created>

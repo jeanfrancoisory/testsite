@@ -1,0 +1,43 @@
+
+<div class="edition">
+  <div class="quitter">
+    <img class="quitterimg" src="assets/cross2.png" (click)="onLeft()"/>
+  </div>
+  <br>
+  <form (ngSubmit)="onCreate(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="firstname">
+        Prenom
+      </label>
+      <input type="text" id="firstname" class="form-control" name="firstname" ngModel required>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="lastname">
+        Nom
+      </label>
+      <input type="text" id="lastname" class="form-control" name="lastname" ngModel required>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="email">
+        Email
+      </label>
+      <input type="text" id="email" class="form-control" name="email" ngModel required>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="password">
+        Password
+      </label>
+      <input type="text" id="password" class="form-control" name="password" ngModel required>
+    </div>
+    <p>
+      <button class="favorite styled"
+              type="submit"
+              [disabled]="f.invalid">
+        Creer un compte
+      </button>
+    </p>
+  </form>
+  </div>
