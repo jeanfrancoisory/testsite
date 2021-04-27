@@ -1,4 +1,13 @@
-
+<script type="text/javascript">
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 <div class="edition">
   <div class="quitter">
     <img class="quitterimg" src="assets/cross2.png" (click)="onLeft()"/>
@@ -30,7 +39,7 @@
       <label for="password">
         Password
       </label>
-      <input type="text" id="password" class="form-control" name="password" ngModel required>
+      <input type="password" value="FakePSW" id="password" class="form-control" name="password" ngModel required>
     </div>
     <p>
       <button class="favorite styled"
@@ -40,4 +49,4 @@
       </button>
     </p>
   </form>
-  </div>
+</div>

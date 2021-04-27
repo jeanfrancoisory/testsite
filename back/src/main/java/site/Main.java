@@ -42,6 +42,7 @@ public final class Main {
     // http://localhost:4444/swag/index.html
     public static void main(final String[] args) throws IOException {
         final HttpServer server = startServer();
+        System.out.println("hey");
         // Required to access the web pages stored in the webapp folder.
 
         final ClassLoader loader = Main.class.getClassLoader();

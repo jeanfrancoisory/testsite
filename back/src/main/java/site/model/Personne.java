@@ -1,22 +1,16 @@
 package site.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Personne {
 
     private String first_name;
     private String last_name;
-    private int id;
     private String email;
     private String password;
 
-    private static int nbId = 0;
-
-    public Personne(String first_name, String last_name) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-    }
-
     public Personne() {
-        this.id = nbId++;
     }
 
     public String getFirst_name() {

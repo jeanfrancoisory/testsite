@@ -1,5 +1,6 @@
 package site.resource;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.Api;
 import site.model.Personne;
@@ -14,8 +15,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.awt.SystemTray;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class SiteResource {
 
     public SiteResource() {
         super();
+        System.out.println("cc");
         final ObjectMapper mapper = new ObjectMapper();
         Site site = null;
         try {
@@ -41,33 +45,59 @@ public class SiteResource {
     @GET
     @Path("pers/{email}/{password}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Personne getPersonne(@PathParam("email") final String email, @PathParam("password") final String password){
+    public Response getPersonne(@PathParam("email") final String email, @PathParam("password") final String password){
         final List<Personne> listPersonnes = site.getListCompte();
         final Personne res = listPersonnes
                 .stream()
                 .filter(m -> (m.getEmail().equals(email) && m.getPassword().equals(password)))
                 .findFirst()
                 .orElse(null);
-        if (res == null) throw new WebApplicationException(Response.status(HttpURLConnection.HTTP_BAD_REQUEST).build());
-        return res;
+        if (res == null) {
+            System.out.println("not ok");
+            throw new WebApplicationException(Response.status(HttpURLConnection.HTTP_BAD_REQUEST).build());
+            //return Response
+            //        .status(Response.Status.BAD_REQUEST)
+            //        .build();
+        }
+        return Response
+                .status(Response.Status.OK)
+                .entity(res)
+                .build();
     }
 
     @POST
     @Path("compte/{firstname}/{lastname}/{email}/{password}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Personne postPersonne(@PathParam("firstname") final String firstname,
+    public Response postPersonne(@PathParam("firstname") final String firstname,
                                  @PathParam("lastname") final String lastname,
                                  @PathParam("email") final String email,
                                  @PathParam("password") final String password){
-        final Personne personne = new Personne(firstname,lastname);
+        final Personne personne = new Personne();
+        personne.setFirst_name(firstname);
+        personne.setLast_name(lastname);
         personne.setEmail(email);
         personne.setPassword(password);
         try {
+            if(site.checkEmail(personne)) {
+                throw new WebApplicationException(Response.status(HttpURLConnection.HTTP_CONFLICT, "Email already taken").build());
+            }
             site.addPersonne(personne);
         }catch(final IllegalArgumentException ex) {
             throw new WebApplicationException(Response.status(HttpURLConnection.HTTP_BAD_REQUEST, ex.getMessage()).build());
         }
-        return personne;
+        final ObjectMapper mapper = new ObjectMapper();
+        try {
+            final String json = mapper.writeValueAsString(site);
+            final PrintWriter writer = new PrintWriter("src/main/resources/site.json");
+            writer.print(json);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Response
+                .status(Response.Status.OK)
+                .entity(personne)
+                .build();
     }
 
 }

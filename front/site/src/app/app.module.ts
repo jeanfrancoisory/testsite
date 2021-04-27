@@ -8,12 +8,16 @@ import { AccueilComponent } from './accueil/accueil.component';
 import {FormsModule} from "@angular/forms";
 import { CompteComponent } from './compte/compte.component';
 import {OverlayModule} from "@angular/cdk/overlay";
+import { MessageComponent } from './message/message.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
-    CompteComponent
+    CompteComponent,
+    MessageComponent,
+    MainpageComponent
   ],
   imports: [
     BrowserModule,

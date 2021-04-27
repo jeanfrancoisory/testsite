@@ -23,8 +23,7 @@ export class OverlayService {
 
     if (closeOnClik) {
       this.overlayRef.backdropClick().subscribe(_ => {
-        // @ts-ignore
-        this.overlayRef.dispose();
+        this.overlayRef?.dispose();
         this.overlayRef = undefined;
       });
     }
