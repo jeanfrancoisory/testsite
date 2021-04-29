@@ -1,33 +1,77 @@
-<div class="centre">
-  <h1>Accueil</h1>
-  <form (ngSubmit)="onConnect(f)" #f="ngForm">
-    <div class="form-group">
-      <label for="email">
-        Email
-      </label>
-      <input type="text" id="email" class="form-control" name="email" ngModel required>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="accueil.component.css" />
+    <title>Accueil</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Accueil</h1>
+      <h2>Bienvenue !</h2>
+    </header>
+
+    <div class="general">
+      <section class="info">
+        <form (ngSubmit)="onConnect(f)" #f="ngForm">
+          <article class="connexion">
+            <div class="form-group 1">
+              <label for="email">
+                Email
+              </label>
+              <input type="text" id="email" class="form-control" name="email" ngModel required>
+            </div>
+            <div class="form-group 2">
+              <label for="password">
+                Password
+              </label>
+              <input type="password" value="FakePSW" id="password" class="form-control" name="password" ngModel required>
+            </div>
+            <div class="button">
+              <button class="favorite styled"
+                      type="submit"
+                      [disabled]="f.invalid">
+                Connection
+              </button>
+            </div>
+          </article>
+        </form>
+      </section>
+      <section class="creation">
+        <button class="favorite styled"
+                type="button" (click)="onCreateNewAccount()">
+          Creer un compte
+        </button>
+      </section>
+      <section class="logo">
+        <img class='logoimg' src='assets/dessin.svg' />
+      </section>
     </div>
-    <br>
-    <div class="form-group">
-      <label for="password">
-        Password
-      </label>
-      <input type="password" value="FakePSW" id="password" class="form-control" name="password" ngModel required>
-    </div>
-    <p>
-      <button class="favorite styled"
-              type="submit"
-              [disabled]="f.invalid">
-        Connection
-      </button>
-    </p>
-  </form>
-  <br>
-  <button class="favorite styled"
-          type="button" (click)="onCreateNewAccount()">
-    Creer un compte
-  </button>
-  <div class="logo" >
-    <img class='logoimg' src='assets/dessin.svg' />
-  </div>
-</div>
+
+    <footer>
+      <div class="footer">
+        <section class="twitter">
+          <h3>Twitter</h3>
+          <a href="https://www.twitter.com">
+            <img class="img" src="assets/twitter.png">
+          </a>
+        </section>
+        <section class="facebook">
+          <h3>Facebook</h3>
+          <a href="https://www.facebook.com">
+            <img class="img" src="assets/facebook.png">
+          </a>
+        </section>
+        <section class="insta">
+          <h3>Instagram</h3>
+          <a href="https://www.instagram.com">
+            <img class="img" src="assets/insta.png">
+          </a>
+        </section>
+      </div>
+    </footer>
+  </body>
+
+</html>
+

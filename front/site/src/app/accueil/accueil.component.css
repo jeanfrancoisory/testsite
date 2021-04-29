@@ -1,12 +1,55 @@
-.centre{
+header{
+  position: relative;
+  top: 20px;
+  border: 7px gray ridge;
+  box-shadow: 6px 6px 6px black;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 200px;
+  margin: auto;
+  background: linear-gradient(0.25turn, #dc4848, #ebf8e1, #dc4848);
   text-align: center;
+  border-radius: 30px;
+}
+body{
+  background: linear-gradient(#3a3a52, #71a8d4);
+  border: 7px gray ridge;
+  box-shadow: 6px 6px 6px black;
+  border-radius: 30px;
+ margin: auto;
+}
+.general{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.styled {
+.connexion{
+  display: flex;
+  flex-direction: column;
+}
+
+.button{
+  padding-top: 20px;
+  margin: auto;
+}
+
+.form-group{
+  margin: auto;
+}
+
+.form-group:nth-child(1){
+  padding-bottom: 20px;
+}
+
+.styled{
   border: 0;
   line-height: 2.5;
   padding: 0 20px;
   font-size: 1rem;
+  font-weight: bold;
   text-align: center;
   color: #fff;
   text-shadow: 1px 1px 1px #000;
@@ -30,9 +73,43 @@
 }
 
 .logo{
-  position: relative;
+  margin-bottom: 20px;
 }
 .logoimg{
   height: 300px;
+  width: auto;
+}
+
+.creation{
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 7px gray ridge;
+  box-shadow: 6px 6px 6px black;
+  background: linear-gradient(0.25turn, #dc4848, #ebf8e1, #dc4848);
+  border-radius: 30px;
+}
+
+.twitter{
+  text-align: center;
+  margin: auto;
+}
+.facebook{
+  text-align: center;
+}
+.insta{
+  text-align: center;
+  margin: auto;
+}
+
+.img{
+  height: 40px;
   width: auto;
 }

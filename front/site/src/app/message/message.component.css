@@ -7,7 +7,9 @@
   height:auto;
   margin-top: -9em; /*set to a negative number 1/2 of your height*/
   margin-left: -15em; /*set to a negative number 1/2 of your width*/
-  border: 2px solid #3b3a3a;
+  border: 7px gray ridge;
+  border-radius: 30px;
+  box-shadow: 6px 6px 6px black;
   background: linear-gradient(0.25turn, #dc4848, #ebf8e1, #dc4848);
 }
 
